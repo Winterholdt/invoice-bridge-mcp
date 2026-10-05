@@ -19,8 +19,12 @@ def _get_safe_path(filename: str, allowed_extensions: tuple = ('.xml', '.pdf')) 
     if not filename or not isinstance(filename, str):
         return None
 
-    clean_name = os.path.basename(filename.strip())
-    if not clean_name or clean_name != filename.strip():
+    raw_name = filename.strip()
+    if "/" in raw_name or "\\" in raw_name or ".." in raw_name:
+        return None
+
+    clean_name = os.path.basename(raw_name)
+    if not clean_name or clean_name != raw_name:
         return None
 
     if not any(clean_name.lower().endswith(ext) for ext in allowed_extensions):
