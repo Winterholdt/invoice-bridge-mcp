@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "invoice-bridge": {
+      "command": "python",
+      "args": [
+        "ABSOLUTER/PFAD/ZU/DEINEM/REPO/src/invoice_bridge/server.py"
+      ],
+      "env": {
+        "INVOICE_INPUT_DIR": "ABSOLUTER/PFAD/ZU/DEINEM/REPO/input"
+      }
+    }
+  }
+}
